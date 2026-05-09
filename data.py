@@ -12,6 +12,7 @@ from config import (
     TEMPERATURE
 )
 
+
 # ============================================================
 # Latent generative world (shared latent structure)
 # ============================================================
