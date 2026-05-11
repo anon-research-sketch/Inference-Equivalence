@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 
 
 plt.rcParams.update({
@@ -63,33 +64,6 @@ def crosshair(ax, lw=0.55, alpha=0.035, enabled=True):
 
 
 
-def annotate_bars(ax, bars, name=None, fmt="{:.2f}", offset=0.05, **kwargs):
-    labels = [tick.get_text() for tick in ax.get_xticklabels()]
-
-    for i, bar in enumerate(bars):
-        height = bar.get_height()
-        if abs(height) > 1e-5:
-            current_label = labels[i] if i < len(labels) else ""
-            current_offset = 0.15 if current_label == name else offset
-
-
-            y_pos = height + current_offset
-            va = 'bottom'
-            default_color = "0.0"
-
-            ax.text(
-                bar.get_x() + bar.get_width() / 2,
-                y_pos,
-                fmt.format(height),
-                fontsize=kwargs.get('fontsize', 12),
-                color=kwargs.get('color', default_color),
-                ha='center',
-                va=va,
-                **kwargs
-            )
-
-
-import matplotlib.ticker as ticker
 
 
 def format_smart_ticks(ax, axis="x", nbins=1):
